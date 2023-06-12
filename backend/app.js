@@ -46,6 +46,9 @@ app.use(userDetails);
 app.use(premiumDetails);
 app.use(premiumFeatureDetails);
 app.use(resetPassword);
+app.use((req,res)=>{
+    res.sendFile(path.join(__dirname, 'views/login.html'));
+})
 
 User.hasMany(Expense);
 Expense.belongsTo(User);
@@ -62,5 +65,5 @@ downloadFile.belongsTo(User);
 console.log(process.env.NODE_ENV);
 
 sequelize.sync().then(()=>{
-    app.listen(process.env.PORT || 2500);
+    app.listen(process.env.PORT || 3500);
 })
