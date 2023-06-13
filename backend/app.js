@@ -47,7 +47,7 @@ app.use(premiumDetails);
 app.use(premiumFeatureDetails);
 app.use(resetPassword);
 app.use((req,res)=>{
-    res.sendFile(path.join(__dirname, 'views/login.html'));
+    res.sendFile(path.join(__dirname, `views/${req.url}`));
 })
 
 User.hasMany(Expense);
